@@ -14,9 +14,10 @@ COPY --chown=app:app development-db.yml /home/app/concerto/config/database.yml
 WORKDIR /home/app/concerto
 RUN bundle install --path vendor/bundle
 
-ENV RAILS_ENV=development
+ENV RAILS_ENV=production
 RUN bundle exec rake db:migrate && \
-    bundle exec rake db:seed
+    bundle exec rake db:seed && \
+    rake assets:precompile
 USER root
 
 EXPOSE 3000
