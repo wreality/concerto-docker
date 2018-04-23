@@ -18,7 +18,9 @@ ENV RAILS_ENV=production
 RUN bundle exec rake db:migrate && \
     bundle exec rake db:seed && \
     bundle exec rake assets:precompile
-USER root
+RUN mkdir /home/app/concerto/log && chmod 600 /home/app/concerto/log
 
+USER root
+RUN chmod 700 /home/app/concerto
 EXPOSE 3000
 CMD ["/sbin/my_init"]
