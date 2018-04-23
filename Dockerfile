@@ -21,6 +21,5 @@ RUN bundle exec rake db:migrate && \
 RUN mkdir -p /home/app/concerto/log && chmod 600 /home/app/concerto/log
 
 USER root
-RUN chmod 700 /home/app/concerto
 EXPOSE 3000
 CMD ["/sbin/my_init"]
