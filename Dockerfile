@@ -17,7 +17,7 @@ RUN bundle install --path vendor/bundle
 ENV RAILS_ENV=production
 RUN bundle exec rake db:migrate && \
     bundle exec rake db:seed && \
-    rake assets:precompile
+    bundle exec rake assets:precompile
 USER root
 
 EXPOSE 3000
