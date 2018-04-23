@@ -1,0 +1,12 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .      
+#    command: bundle exec rails s -b 0.0.0.0
+    environment:
+      RAILS_ENV: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - $PWD/shared/db:/home/app/concerto/db/sqlite
